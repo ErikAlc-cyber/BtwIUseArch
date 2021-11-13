@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------------------------
-#   █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-#  ██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-#  ███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-#  ██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-#  ██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-#  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
+#_   _            _      _   _                               _     _ _
+#| | | | __ _  ___| | __ | |_| |__   ___  __      _____  _ __| | __| | |
+#| |_| |/ _` |/ __| |/ / | __| '_ \ / _ \ \ \ /\ / / _ \| '__| |/ _` | |
+#|  _  | (_| | (__|   <  | |_| | | |  __/  \ V  V / (_) | |  | | (_| |_|
+#|_| |_|\__,_|\___|_|\_\  \__|_| |_|\___|   \_/\_/ \___/|_|  |_|\__,_(_)
 #-------------------------------------------------------------------------
 echo "--------------------------------------"
 echo "--          Network Setup           --"
@@ -62,11 +61,11 @@ PKGS=(
 'xorg-xkill'
 'xorg-xinit'
 'xterm'
-'plasma-desktop' # KDE Load second
+'i3-gaps' # KDE Load second
 'alsa-plugins' # audio plugins
 'alsa-utils' # audio utils
 'ark' # compression
-'audiocd-kio' 
+'audiocd-kio'
 'autoconf' # build
 'automake' # build
 'base'
@@ -84,12 +83,13 @@ PKGS=(
 'btrfs-progs'
 'celluloid' # video players
 'cmatrix'
+'cmus'
 'code' # Visual Studio code
 'cronie'
 'cups'
+'deepin-screenshot'
 'dialog'
 'discover'
-'dolphin'
 'dosfstools'
 'dtc'
 'efibootmgr' # EFI boot
@@ -97,6 +97,7 @@ PKGS=(
 'exfat-utils'
 'extra-cmake-modules'
 'filelight'
+'figlet'
 'flex'
 'fuse2'
 'fuse3'
@@ -112,6 +113,7 @@ PKGS=(
 'gst-libav'
 'gst-plugins-good'
 'gst-plugins-ugly'
+'gtk-chtheme'
 'gwenview'
 'haveged'
 'htop'
@@ -120,13 +122,11 @@ PKGS=(
 'kate'
 'kcodecs'
 'kcoreaddons'
-'kdeplasma-addons'
 'kde-gtk-config'
 'kinfocenter'
 'kscreen'
 'kvantum-qt5'
 'kitty'
-'konsole'
 'kscreen'
 'layer-shell-qt'
 'libdvdcss'
@@ -136,13 +136,16 @@ PKGS=(
 'linux-firmware'
 'linux-headers'
 'lsof'
+'lolcat'
 'lutris'
+'lxappearance'
 'lzop'
 'm4'
 'make'
 'milou'
 'nano'
 'neofetch'
+'nautilus'
 'networkmanager'
 'ntfs-3g'
 'ntp'
@@ -156,11 +159,12 @@ PKGS=(
 'patch'
 'picom'
 'pkgconf'
-'plasma-meta'
-'plasma-nm'
+'polybar'
+'polybar-spotify'
 'powerdevil'
 'powerline-fonts'
 'print-manager'
+'playerctl'
 'pulseaudio'
 'pulseaudio-alsa'
 'pulseaudio-bluetooth'
@@ -209,7 +213,7 @@ done
 
 #
 # determine processor type and install microcode
-# 
+#
 proc_type=$(lscpu | awk '/Vendor ID:/ {print $3}')
 case "$proc_type" in
 	GenuineIntel)
@@ -222,7 +226,7 @@ case "$proc_type" in
 		pacman -S --noconfirm amd-ucode
 		proc_ucode=amd-ucode.img
 		;;
-esac	
+esac
 
 # Graphics Drivers find and install
 if lspci | grep -E "NVIDIA|GeForce"; then
@@ -241,7 +245,7 @@ echo "username=$username" >> ${HOME}/ArchTitus/install.conf
 fi
 if [ $(whoami) = "root"  ];
 then
-    useradd -m -G wheel,libvirt -s /bin/bash $username 
+    useradd -m -G wheel,libvirt -s /bin/bash $username
 	passwd $username
 	cp -R /root/ArchTitus /home/$username/
     chown -R $username: /home/$username/ArchTitus
@@ -250,4 +254,3 @@ then
 else
 	echo "You are already a user proceed with aur installs"
 fi
-

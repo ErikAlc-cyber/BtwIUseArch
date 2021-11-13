@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 #-------------------------------------------------------------------------
-#   █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-#  ██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-#  ███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-#  ██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-#  ██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-#  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
+#_   _            _      _   _                               _     _ _
+#| | | | __ _  ___| | __ | |_| |__   ___  __      _____  _ __| | __| | |
+#| |_| |/ _` |/ __| |/ / | __| '_ \ / _ \ \ \ /\ / / _ \| '__| |/ _` | |
+#|  _  | (_| | (__|   <  | |_| | | |  __/  \ V  V / (_) | |  | | (_| |_|
+#|_| |_|\__,_|\___|_|\_\  \__|_| |_|\___|   \_/\_/ \___/|_|  |_|\__,_(_)
 #-------------------------------------------------------------------------
 
 echo -e "\nINSTALLING AUR SOFTWARE\n"
@@ -26,8 +25,11 @@ PKGS=(
 'autojump'
 'awesome-terminal-fonts'
 'brave-bin' # Brave Browser
+'deadd-notification-center'
 'dxvk-bin' # DXVK DirectX to Vulcan
-'github-desktop-bin' # Github Desktop sync
+'gitkraken'
+'thermald'
+'cpupower'
 'lightly-git'
 'lightlyshaders-git'
 'mangohud' # Gaming FPS Counter
@@ -40,6 +42,7 @@ PKGS=(
 'noto-fonts-emoji'
 'papirus-icon-theme'
 'plasma-pa'
+'volnoti-brightness-git'
 'ocs-url' # install packages from websites
 'sddm-nordic-theme-git'
 'snapper-gui-git'
@@ -56,7 +59,7 @@ for PKG in "${PKGS[@]}"; do
 done
 
 export PATH=$PATH:~/.local/bin
-cp -r $HOME/ArchTitus/dotfiles/* $HOME/.config/
+cp -r $HOME/BtwIUseArch/dotfiles/* $HOME/.config/
 pip install konsave
 konsave -i $HOME/ArchTitus/kde.knsv
 sleep 1
