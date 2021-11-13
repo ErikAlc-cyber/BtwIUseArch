@@ -1,0 +1,7 @@
+fset baroque=genre="Baroque"
+fset classical=genre="Classical"
+fset film=genre="Film"
+fset frequent=play_count>5
+fset jazz=genre="Jazz"
+fset missing-tag=!stream&(artist=""|album=""|title=""|tracknumber=-1|date=-1)
+fset unheard=play_count=0

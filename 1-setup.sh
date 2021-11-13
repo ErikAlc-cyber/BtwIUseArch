@@ -61,10 +61,11 @@ PKGS=(
 'xorg-xkill'
 'xorg-xinit'
 'xterm'
-'i3-gaps' # KDE Load second
+'plasma-desktop' # KDE Load second
 'alsa-plugins' # audio plugins
 'alsa-utils' # audio utils
 'ark' # compression
+'aircrack-ng'
 'audiocd-kio'
 'autoconf' # build
 'automake' # build
@@ -122,6 +123,7 @@ PKGS=(
 'kate'
 'kcodecs'
 'kcoreaddons'
+'kdeplasma-addons'
 'kde-gtk-config'
 'kinfocenter'
 'kscreen'
@@ -142,6 +144,7 @@ PKGS=(
 'lzop'
 'm4'
 'make'
+'metasploit'
 'milou'
 'nano'
 'neofetch'
@@ -159,8 +162,8 @@ PKGS=(
 'patch'
 'picom'
 'pkgconf'
-'polybar'
-'polybar-spotify'
+'plasma-meta'
+'plasma-nm'
 'powerdevil'
 'powerline-fonts'
 'print-manager'
@@ -197,6 +200,7 @@ PKGS=(
 'wine-gecko'
 'wine-mono'
 'winetricks'
+'wifite'
 'xdg-desktop-portal-kde'
 'xdg-user-dirs'
 'zeroconf-ioslave'
@@ -241,7 +245,7 @@ fi
 echo -e "\nDone!\n"
 if ! source install.conf; then
 	read -p "Please enter username:" username
-echo "username=$username" >> ${HOME}/ArchTitus/install.conf
+echo "username=$username" >> ${HOME}/install.conf
 fi
 if [ $(whoami) = "root"  ];
 then

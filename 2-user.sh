@@ -16,10 +16,7 @@ git clone "https://aur.archlinux.org/yay.git"
 cd ${HOME}/yay
 makepkg -si --noconfirm
 cd ~
-touch "$HOME/.cache/zshhistory"
-git clone "https://github.com/ChrisTitusTech/zsh"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
-ln -s "$HOME/zsh/.zshrc" $HOME/.zshrc
+sudo cp -r BtwIUseArch/.zhsrc $HOME
 
 PKGS=(
 'autojump'
@@ -28,8 +25,6 @@ PKGS=(
 'deadd-notification-center'
 'dxvk-bin' # DXVK DirectX to Vulcan
 'gitkraken'
-'thermald'
-'cpupower'
 'lightly-git'
 'lightlyshaders-git'
 'mangohud' # Gaming FPS Counter
@@ -64,6 +59,14 @@ pip install konsave
 konsave -i $HOME/ArchTitus/kde.knsv
 sleep 1
 konsave -a kde
+
+echo -e "\nInstallign BlackArch Stuff\n"
+curl -O https://blackarch.org/strap.sh
+chmod +x strap.sh
+sudo ./strap.sh
+sudo pacman -Syu
+sudo pacman -S --noconfirm blackarch 
+sudo pacman -Syyu --needed blackarch --overwrite='*'
 
 echo -e "\nDone!\n"
 exit
